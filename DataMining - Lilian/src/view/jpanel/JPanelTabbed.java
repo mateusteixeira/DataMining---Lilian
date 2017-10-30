@@ -109,7 +109,7 @@ public class JPanelTabbed extends javax.swing.JPanel implements Observer {
         if (o instanceof Host) {
             Host h = (Host) o;
             if ((o1 instanceof Base) && ((Base) o1).hasMeta()) {
-                setEnabledAt(JPANELCLASSIFY, false);
+                setEnabledAt(JPANELCLASSIFY, true);
                 setEnabledAt(JPANELCLUSTER, verificaBase((Base) o1));
                 revalidate();
             }
