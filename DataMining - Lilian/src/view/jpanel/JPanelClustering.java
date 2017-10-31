@@ -1,43 +1,46 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package view.jpanel;
 
 import controller.FacadeHost;
 import controller.Host;
+import controller.ModuleFactory;
 import interfaces.Base;
+import interfaces.mining.classify.ClassifierModuleInterface;
+import interfaces.mining.clustering.ClusteringModuleInterface;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.ModuleAvailable;
 import moduledefault.clustering.view.frames.JFrameKmeans;
 import moduledefault.clustering.view.jpanel.PanelKmeans;
 
-/**
- *
- * @author Mateusinho
- */
+
 public class JPanelClustering extends javax.swing.JPanel implements Observer {
 
-    private ArrayList<Base> arrayListBases = new ArrayList<>(); //LISTA DE BASE DE DADOS
-    private double[][] base; //Base atual
+    private ArrayList<Base> arrayListBases = new ArrayList<>(); 
+    
+    private double[][] base; 
+    
     private String[] grupos;
-    static int fundoWidth;
-    static int fundoHeight;
-    //
+    
+    private static int fundoWidth;
+    
+    private static int fundoHeight;
 
-    PanelKmeans K = null;
-    JFrameKmeans frameKmeans;
+    private PanelKmeans K = null;
+    
+    private JFrameKmeans frameKmeans;
 
-    /**
-     * Creates new form JPanelClustering
-     */
     public JPanelClustering() {
-        FacadeHost.getHost().addObserver(this);
         initComponents();
+        FacadeHost.getHost().addObserver(this);
+        jComboBoxMetodos.addItem("");
+        for (ModuleAvailable<ClusteringModuleInterface> c : ModuleFactory.getArrayListClusteringModules()) {
+            jComboBoxMetodos.addItem(c);
+        }
+        
         jButtonConfiguracao.setEnabled(false);
     }
 

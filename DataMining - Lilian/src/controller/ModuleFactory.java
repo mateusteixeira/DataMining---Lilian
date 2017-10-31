@@ -7,6 +7,7 @@ import annotations.ModuleAnnotation;
 import interfaces.mining.classify.ClassifierModuleInterface;
 import interfaces.mining.classify.EvaluationMetricModuleInterface;
 import interfaces.mining.classify.PartitionModuleInterface;
+import interfaces.mining.clustering.ClusteringModuleInterface;
 import interfaces.preprocess.ElicitedBasesModuleInterface;
 import java.io.File;
 import java.io.IOException;
@@ -33,13 +34,19 @@ public class ModuleFactory {
 
     private static ArrayList<ModuleAvailable<ClassifierModuleInterface>> arrayListClassifierModules
             = new ArrayList<ModuleAvailable<ClassifierModuleInterface>>();
+    
     private static ArrayList<ModuleAvailable<ElicitedBasesModuleInterface>> arrayListElicitedBasesModules
             = new ArrayList<ModuleAvailable<ElicitedBasesModuleInterface>>();
+    
     private static ArrayList<ModuleAvailable<PartitionModuleInterface>> arrayListPartionModules
             = new ArrayList<ModuleAvailable<PartitionModuleInterface>>();
+    
     private static ArrayList<ModuleAvailable<EvaluationMetricModuleInterface>> arrayListEvaluationMetrics
             = new ArrayList<ModuleAvailable<EvaluationMetricModuleInterface>>();
 
+        private static ArrayList<ModuleAvailable<ClusteringModuleInterface>> arrayListClusteringModules
+            = new ArrayList<ModuleAvailable<ClusteringModuleInterface>>();
+    
     private static URLClassLoader loader;
 
     static {
@@ -186,6 +193,10 @@ public class ModuleFactory {
 
     public static ArrayList<ModuleAvailable<ClassifierModuleInterface>> getArrayListClassifierModules() {
         return arrayListClassifierModules;
+    }
+    
+    public static ArrayList<ModuleAvailable<ClusteringModuleInterface>> getArrayListClusteringModules(){
+        return arrayListClusteringModules;
     }
 
     public static ArrayList<ModuleAvailable<ElicitedBasesModuleInterface>> getArrayListElicitedBasesModules() {

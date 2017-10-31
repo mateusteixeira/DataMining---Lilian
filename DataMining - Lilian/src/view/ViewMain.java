@@ -11,13 +11,8 @@
 package view;
 
 import controller.FacadeHost;
-import interfaces.PersistenceModuleInterface;
-import java.awt.Component;
-import javax.swing.JFileChooser;
-import javax.swing.JOptionPane;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
-import model.serialization.Serializer;
 
 /**
  *

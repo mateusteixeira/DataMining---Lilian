@@ -7,10 +7,6 @@ package interfaces.mining;
 
 import interfaces.ModuleInterface;
 
-/**
- *
- * @author evaristowb
- */
 public interface MinerModuleInterface extends ModuleInterface {
 
 }

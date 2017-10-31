@@ -1,26 +1,16 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package moduledefault.classify.knn;
 
-import java.util.HashSet;
 import java.util.Vector;
-import java.util.concurrent.CancellationException;
 
-/**
- *
- * @author evaristowb
- */
+
 public class Knn {
 
-    private static final String MANHATAM_DISTANCE_FUNCTION = "Manhatam";
     private static final String EUCLIDEAN_DISTANCE_FUNCTION = "Euclidiana";
     private static final String MAJORITY_VOTE = "Maioria por Votação";
     private static final String WEIGHT_BY_DISTANCE = "Peso pela Distância";
-    public static final String[] DISTANCE_FUNCTION = {MANHATAM_DISTANCE_FUNCTION, EUCLIDEAN_DISTANCE_FUNCTION};
+    public static final String[] DISTANCE_FUNCTION = { EUCLIDEAN_DISTANCE_FUNCTION};
     public static final String[] INFERENCE_RULE = {MAJORITY_VOTE, WEIGHT_BY_DISTANCE};
-    public static String distance_function = MANHATAM_DISTANCE_FUNCTION;
+    public static String distance_function = EUCLIDEAN_DISTANCE_FUNCTION;
     public static String inference_rule = WEIGHT_BY_DISTANCE;
     public static int k_default = 1;
     private Vector input;
@@ -53,35 +43,19 @@ public class Knn {
     }
 
     private double distance(Object[] o1, Object[] o2) {
-        if (distance_function.compareTo(MANHATAM_DISTANCE_FUNCTION) == 0) {
-            return Manhatam(o1, o2);
-        } else if (distance_function.compareTo(EUCLIDEAN_DISTANCE_FUNCTION) == 0) {
+        if (distance_function.compareTo(EUCLIDEAN_DISTANCE_FUNCTION) == 0) {
             return Euclidean(o1, o2);
         } else {
             return 0.0;
         }
     }
 
-    private double Manhatam(Object[] o1, Object[] o2) {
-        double d = 0.0;
-        for (int i = 0; i < o1.length && i < o2.length; i++) {
-            if(o1[i] instanceof Number)
-//            try {
-                d += Math.abs(new Double(o1[i].toString()) - new Double(o2[i].toString()));
-//            } catch (NumberFormatException ex) {
-//            }
-        }
-        return d;
-    }
-
     private double Euclidean(Object[] o1, Object[] o2) {
         double d = 0.0;
         for (int i = 0; i < o1.length && i < o2.length; i++) {
             if(o1[i] instanceof Number)
-//            try {
                 d += Math.pow(new Double(o1[i].toString()) - new Double(o2[i].toString()), 2);
-//            } catch (NumberFormatException ex) {
-//            }
+
         }
         return Math.sqrt(d);
     }
@@ -94,7 +68,6 @@ public class Knn {
         int i = Lo;
         int j = Hi;
         double H = 0;
-//        System.out.println(v.get((Lo + Hi) / 2).toString());
         double x = Double.parseDouble(v.get((Lo + Hi) / 2).toString());
         do {
             while (Double.parseDouble(v.get(i).toString()) < x) {

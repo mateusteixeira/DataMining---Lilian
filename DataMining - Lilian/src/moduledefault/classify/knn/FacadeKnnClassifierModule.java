@@ -1,17 +1,9 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package moduledefault.classify.knn;
 
 import javax.swing.JDialog;
 
-/**
- *
- * @author evaristowb
- */
 public class FacadeKnnClassifierModule {
+    
     private static KnnClassifierModule knnClassifierModule;
 
     private FacadeKnnClassifierModule() {

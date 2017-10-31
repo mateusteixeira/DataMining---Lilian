@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package interfaces.mining.classify;
 
 import interfaces.Base;
@@ -13,10 +8,7 @@ import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
-/**
- *
- * @author evaristowb
- */
+
 public interface ClassifierModuleInterface extends MinerModuleInterface, Cloneable, Serializable {
 
     /**

@@ -1,8 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package moduledefault.classify.knn;
 
 import annotations.ClassifierModuleAnnotation;
@@ -15,10 +10,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import moduledefault.classify.knn.view.jpanel.JPanelKnn;
 
-/**
- *
- * @author Administrador
- */
 @ModuleAnnotation(name = "KNN - K-Nearest Neighbor")
 @ClassifierModuleAnnotation
 public class KnnClassifierModule implements ClassifierModuleInterface {
